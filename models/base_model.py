@@ -25,13 +25,12 @@ class BaseModel:
         """Devuelve una representacion en cadena del objeto
         incluyendo el nombre de la clase, el IDE y los atributos
         """
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, self.__dict__)
+        return f"[BaseModel] ({self.id}) {self.__dict__}"
 
     def save(self):
         """
         Actualiza la fecha y hora al momento actual en formato ISO"""
-        self.update_at = datetime.now()
+        self.update_at = datetime.now().isoformat()
 
     def to_dict(self):
         """
