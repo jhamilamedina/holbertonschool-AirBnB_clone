@@ -8,17 +8,32 @@ import models
 
 class BaseModel:
     """Representación de la clase"""
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """Inicializa los atributos:
         id, create_at, update_at
+        **kwargs: recibe un diccionario
         """
+        if kwargs:  # Si no esta vacion inicializa atributos y valores
+            for key, value in kwargs.items():
+                if kwargs != "__class__":
+                    setattr(self, key, value)
+            """El atributo created_at convierte el objeto a formato string
+            a un objeto datetime la función strptime del modulos datetime
+            analiza la cadena en created_at de acuerdo al formato dado
+            """
+            self.__dict_["created_at"] = datetime.strptime(
+                self.__dict__["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
 
-        self.id = str(uuid.uuid4())
-        """Establece la fecha y hora de la creación al momento actual
-        en formato ISO
-        """
-        self.created_at = datetime.now()
-        """Establece la fecha y hora de actualización en formato ISO"""
+            self.__dict__["updated_at"] = datetime.strptime(
+                self.__dict__["updated_at"], "%Y-%m-%dT%H:%M:%S.%f")
+
+        else:
+            self.id = str(uuid.uuid4())
+            """Establece la fecha y hora de la creación al momento actual
+            en formato ISO
+            """
+            self.created_at = datetime.now()
+            """Establece la fecha y hora de actualización en formato ISO"""
         self.updated_at = datetime.now()
 
     def __str__(self):
