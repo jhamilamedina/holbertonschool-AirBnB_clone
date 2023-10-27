@@ -21,7 +21,7 @@ class BaseModel:
             a un objeto datetime la función strptime del modulos datetime
             analiza la cadena en created_at de acuerdo al formato dado
             """
-            self.__dict_["created_at"] = datetime.strptime(
+            self.__dict__["created_at"] = datetime.strptime(
                 self.__dict__["created_at"], "%Y-%m-%dT%H:%M:%S.%f")
 
             self.__dict__["updated_at"] = datetime.strptime(
