@@ -14,9 +14,9 @@ class BaseModel:
         **kwargs: recibe un diccionario
         """
         if kwargs:  # Si no esta vacion inicializa atributos y valores
-            for key, value in kwargs.items():
-                if key != "__class__":
-                        setattr(self, key, value)
+            for k, v in kwargs.items():
+                if k != "__class__":
+                    setattr(self, k, v)
             """El atributo created_at convierte el objeto a formato string
             a un objeto datetime la función strptime del modulos datetime
             analiza la cadena en created_at de acuerdo al formato dado
