@@ -1,14 +1,68 @@
-#!/usr/bin/python3
-from models.base_model import BaseModel
+"""
+Este modulo contiene los casos de prueba para
+nuestra clase BaseModel.
+"""
 
-my_model = BaseModel()
-my_model.name = "My First Model"
-my_model.my_number = 89
-print(my_model)
-my_model.save()
-print(my_model)
-my_model_json = my_model.to_dict()
-print(my_model_json)
-print("JSON of my_model:")
-for key in my_model_json.keys():
-    print("\t{}: ({}) - {}".format(key, type(my_model_json[key]), my_model_json[key]))
+
+import unittest
+
+from models.base_model import BaseModel
+import time
+
+
+class TestBaseModel(unittest.TestCase):
+    """
+    Esta clase define los casos de prueba.
+    """
+
+    def setUp(self):
+        """
+        Se crea una instancia de nuestra clase BaseModel
+        """
+        self.bm = BaseModel()
+
+    def test_init(self):
+        """
+        Se comparan los atributos con los tipos de datos.
+        """
+        self.assertIsInstance(self.bm.id, str)
+
+    def test_return(self):
+        """
+        Compara el retorno como None de save().
+        """
+        self.assertIsNone(self.bm.save())
+
+    def test_compare_attrs(self):
+        """
+        Verifica que contengan todos los atributos.
+        """
+        model_dict = self.bm.to_dict()
+        self.assertIn('id', model_dict)
+        self.assertIn('created_at', model_dict)
+        self.assertIn('updated_at', model_dict)
+        self.assertIn('__class__', model_dict)
+
+    def test_methods_magic_str(self):
+        """
+        Compara la salida del método magic __str__.
+        """
+        bm = BaseModel()
+        expected_output = "[{}] ({}) {}".format(
+                bm.__class__.__name__, bm.id, bm.__dict__)
+        self.assertEqual(str(bm), expected_output)
+
+    def test_update_date(self):
+        """
+        Este test actualiza el atributo updated_at, para compararlo
+        después de llamar al método save().
+        """
+        model = BaseModel()
+        original_updated_at = model.updated_at
+        time.sleep(1)
+        model.save()
+        self.assertNotEqual(original_updated_at, model.updated_at)
+
+
+if __name__ == "__main__":
+    unittest.main()
