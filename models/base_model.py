@@ -30,7 +30,7 @@ class BaseModel:
     def save(self):
         """
         Actualiza la fecha y hora al momento actual en formato ISO"""
-        self.update_at = datetime.now().isoformat()
+        self.updated_at = datetime.now()
 
     def to_dict(self):
         """
