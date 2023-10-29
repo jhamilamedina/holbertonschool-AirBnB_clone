@@ -4,7 +4,6 @@
 import json
 from os import path
 import datetime
-import os
 
 
 class FileStorage:
@@ -44,9 +43,9 @@ class FileStorage:
         Deserialia el archivo json en __objects solo si el
         archivo __file_path existe
         """
-        if not os.path.exists(FileStorage.__file_path):
+        if path.exists(FileStorage.__file_path):
             return
-        with open(self.__file_path, "r", encoding="utf-8") as file:
+        with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
             obj_dict = json.load(file)
             obj_dict = {k: self.classes()[v["__class__"]](**v)
                         for k, v in obj_dict.items()}
