@@ -3,7 +3,7 @@
 
 import uuid
 from datetime import datetime
-import models
+from models import storage
 
 
 class BaseModel:
@@ -34,26 +34,30 @@ class BaseModel:
             """
             self.created_at = datetime.now()
             """Establece la fecha y hora de actualización en formato ISO"""
-        self.updated_at = datetime.now()
+            self.updated_at = datetime.now()
+            storage.new(self)
 
     def __str__(self):
         """Devuelve una representacion en cadena del objeto
         incluyendo el nombre de la clase, el IDE y los atributos
         """
-        return f"[BaseModel] ({self.id}) {self.__dict__}"
+        return "[{}] ({}) {}".format(self.__class__.__name__,
+                                     self.id, self.__dict__)
 
     def save(self):
         """
         Actualiza la fecha y hora al momento actual en formato ISO"""
         self.updated_at = datetime.now()
+        storage.save()
 
     def to_dict(self):
         """
         Este metodo agrega el nombre de la clase al diccionario y devuelve
         todos los atributos en un diccionario
         """
-        my_dict = dict(self.__dict__)
+        my_dict = self.__dict_.copy()
+        my_dict["__class__"] = type(self).__name__
         my_dict['created_at'] = self.__dict__['created_at'].isoformat()
         my_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
         my_dict['__class__'] = self.__class__.__name__
-        return (my_dict)
+        return my_dict
