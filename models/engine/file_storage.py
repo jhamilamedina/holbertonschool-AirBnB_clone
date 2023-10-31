@@ -7,9 +7,10 @@ import datetime
 
 
 class FileStorage:
-    """Representacion de la clase FileStorage"""
-    __file_path = "file.json"
-    __objects = {}  # Suponiendo __objects es un atributo de la clase
+    def __init__(self):
+        """Representacion de la clase FileStorage"""
+        self.__file_path = "file.json"
+        self.__objects = {}  # Suponiendo __objects es un atributo de la clase
 
     def all(self):
         """Este metodo all devuelve un diccionario a __objects
@@ -43,9 +44,9 @@ class FileStorage:
         Deserialia el archivo json en __objects solo si el
         archivo __file_path existe
         """
-        if path.exists(FileStorage.__file_path):
+        if path.exists(self.__file_path):
             return
-        with open(FileStorage.__file_path, "r", encoding="utf-8") as file:
+        with open(self.__file_path, "r", encoding="utf-8") as file:
             obj_dict = json.load(file)
             obj_dict = {k: self.classes()[v["__class__"]](**v)
                         for k, v in obj_dict.items()}
