@@ -28,15 +28,17 @@ class FileStorage:
         y json.dumps lo utiliza para escribir un diccionario a __objects
         en el archivo en formato json
         """
+        data = {}
+        for k, v in self.__objects.items():
+            data[k] = v.to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as file:
-            d = {k: v.to_dict() for k, v in self.__objects.items()}
             """
             k:Es la clave del elemento actual en FileStorage.__objects.
             v: valor del elemento actual en FileStorage.__objects.
             Para cada par clave-valor en FileStorage.__objects, se
             está creando un nuevo par clave-valor en la diccion (d)
             """
-            json.dump(self.__objects, file)
+            json.dump(data, file)
 
     def reload(self):
         """
