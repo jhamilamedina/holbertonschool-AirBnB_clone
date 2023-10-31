@@ -33,11 +33,10 @@ class FileStorage:
             """
             k:Es la clave del elemento actual en FileStorage.__objects.
             v: valor del elemento actual en FileStorage.__objects.
-
             Para cada par clave-valor en FileStorage.__objects, se
             está creando un nuevo par clave-valor en la diccion (d)
             """
-            json.dump(FileStorage.__objects, file)
+            json.dump(self.__objects, file)
 
     def reload(self):
         """
