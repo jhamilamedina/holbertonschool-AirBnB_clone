@@ -55,9 +55,9 @@ class BaseModel:
         Este metodo agrega el nombre de la clase al diccionario y devuelve
         todos los atributos en un diccionario
         """
-        my_dict = self.__dict_.copy()
+        my_dict = self.__dict__.copy()
         my_dict["__class__"] = type(self).__name__
         my_dict['created_at'] = self.__dict__['created_at'].isoformat()
         my_dict['updated_at'] = self.__dict__['updated_at'].isoformat()
         my_dict['__class__'] = self.__class__.__name__
-        return my_dict
+        return (my_dict)
