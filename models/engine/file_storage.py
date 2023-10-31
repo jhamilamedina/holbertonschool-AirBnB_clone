@@ -46,7 +46,4 @@ class FileStorage:
         if path.exists(self.__file_path):
             return
         with open(self.__file_path, "r", encoding="utf-8") as file:
-            obj_dict = json.load(file)
-            obj_dict = {k: self.classes()[v["__class__"]](**v)
-                        for k, v in obj_dict.items()}
-            self.__objects = obj_dict
+            self.__objects = json.load(file)
