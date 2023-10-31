@@ -21,7 +21,7 @@ class FileStorage:
         """Este metodo toma obj como argumento y construye __objects
         diccionario usando el nombre de la clase y el id"""
         key = "{}.{}".format(type(obj).__name__, obj.id)
-        FileStorage.__objects[key] = obj
+        self.__objects[key] = obj
 
     def save(self):
         """El metodo save abre el archivo __file_path
@@ -29,7 +29,7 @@ class FileStorage:
         en el archivo en formato json
         """
         with open(self.__file_path, "w", encoding="utf-8") as file:
-            d = {k: v.to_dict() for k, v in FileStorage.__objects.items()}
+            d = {k: v.to_dict() for k, v in self.__objects.items()}
             """
             k:Es la clave del elemento actual en FileStorage.__objects.
             v: valor del elemento actual en FileStorage.__objects.
