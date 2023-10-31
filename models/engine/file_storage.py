@@ -15,7 +15,7 @@ class FileStorage:
     def all(self):
         """Este metodo all devuelve un diccionario a __objects
         cuando se llama a una instancia de la clase"""
-        return FileStorage.__objects
+        return self.__objects
 
     def new(self, obj):
         """Este metodo toma obj como argumento y construye __objects
