@@ -49,4 +49,4 @@ class FileStorage:
             obj_dict = json.load(file)
             obj_dict = {k: self.classes()[v["__class__"]](**v)
                         for k, v in obj_dict.items()}
-            FileStorage.__objects = obj_dict
+            self.__objects = obj_dict
