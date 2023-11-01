@@ -47,7 +47,7 @@ class BaseModel:
     def save(self):
         """
         Actualiza la fecha y hora al momento actual en formato ISO"""
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.today()
         storage.save()
 
     def to_dict(self):
@@ -57,7 +57,6 @@ class BaseModel:
         Retorna la representacion de un diccionario de la instancia
         """
         data = dict(self.__dict__)
-        data["__class__"] = type(self).__name__
         data['created_at'] = self.__dict__['created_at'].isoformat()
         data['updated_at'] = self.__dict__['updated_at'].isoformat()
         data["__class__"] = self.__class__.__name__
