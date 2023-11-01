@@ -54,10 +54,10 @@ class BaseModel:
         """
         Este metodo agrega el nombre de la clase al diccionario y devuelve
         todos los atributos en un diccionario
+        Retorna la representacion de un diccionario de la instancia
         """
         data = dict(self.__dict__)
-        data["__class__"] = type(self).__name__
+        data["__class__"] = self.__class__.__name__
         data['created_at'] = self.__dict__['created_at'].isoformat()
         data['updated_at'] = self.__dict__['updated_at'].isoformat()
-        data['__class__'] = self.__class__.__name__
         return data
