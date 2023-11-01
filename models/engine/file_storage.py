@@ -48,4 +48,4 @@ class FileStorage:
         if not path.exists(self.__file_path):
             return
         with open(self.__file_path, "r", encoding="utf-8") as file:
-            self.__objects = json.load(file)
+            data = json.load(file)
