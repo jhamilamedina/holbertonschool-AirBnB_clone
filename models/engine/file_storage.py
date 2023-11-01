@@ -20,7 +20,7 @@ class FileStorage:
     def new(self, obj):
         """Este metodo toma obj como argumento y construye __objects
         diccionario usando el nombre de la clase y el id"""
-        key = f"{obj.__class__.__name__}.{obj.id}"
+        key = "{}.{}".format(type(obj).__name__, obj.id)
         self.__objects[key] = obj
 
     def save(self):
@@ -29,8 +29,8 @@ class FileStorage:
         en el archivo en formato json
         """
         data = {}
-        for k, obj in self.__objects.items():
-            data[k] = obj.to_dict()
+        for k, v in self.__objects.items():
+            data[k] = v.to_dict()
         with open(self.__file_path, "w", encoding="utf-8") as file:
             """
             k:Es la clave del elemento actual en FileStorage.__objects.
@@ -48,4 +48,4 @@ class FileStorage:
         if not path.exists(self.__file_path):
             return
         with open(self.__file_path, "r", encoding="utf-8") as file:
-            data = json.load(file)
+            self.__objects = json.load(file)
