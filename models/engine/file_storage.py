@@ -45,7 +45,7 @@ class FileStorage:
         Deserialia el archivo json en __objects solo si el
         archivo __file_path existe
         """
-        if not path.exists(self.__file_path):
+        if path.exists(self.__file_path):
             return
         with open(self.__file_path, "r", encoding="utf-8") as file:
             self.__objects = json.load(file)
