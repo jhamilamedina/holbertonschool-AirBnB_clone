@@ -65,7 +65,30 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_all_with_arg(self):
         with self.assertRaises(TypeError):
             models.storage.all(None)
-        
+
+    def test_new(self):
+        bm = BaseModel()
+        models.storage.new(bm)
+        self.assertIn("BaseModel." + bm.id, models.storage.all().keys())
+        self.assertIn(bm, models.storage.all().values())
+
+    def test_new_with_args(self):
+        with self.assertRaises(TypeError):
+            models.storage.new(BaseModel(), 1)
+
+    def test_save(self):
+        bm = BaseModel()
+        models.storage.new(bm)
+        models.storage.save()
+        save_text = ""
+        with open("file.json", "r") as f:
+            save_text = f.read()
+            self.assertIn("BaseModel." + bm.id, save_text)
+
+    def test_save_with_arg(self):
+        with self.assertRaises(TypeError):
+            models.storage.save(None)
+
 
 if __name__ == "__main__":
     unittest.main()
