@@ -28,9 +28,8 @@ class FileStorage:
             y json.dumps lo utiliza para escribir un diccionario a __objects
             en el archivo en formato json
             """
-            data = {}
-            for k, v in self.__objects.items():
-                data[k] = v.to_dict()
+            odict = self.__objects
+            data = {obj: odict[obj].to_dict() for obj in odict.keys()} 
             with open(self.__file_path, "w", encoding="utf-8") as file:
                 json.dump(data, file)
 
