@@ -40,13 +40,14 @@ class FileStorage:
             Deserialia el archivo json en __objects solo si el
             archivo __file_path existe
             """
-            if path.exists(self.__file_path):
-                return
-            with open(self.__file_path, "r", encoding="utf-8") as file:
-                data = json.load(file)
+            try:
+                with open(self.__file_path, "r", encoding="utf-8") as file:
+                    data = json.load(file)
                 
-            for k, v in obj.items():
-                from models.base_model import BaseModel
-
-                bs = BaseModel(**v)
-                self.__objects[k] = bs
+                    for o in data.values():
+                        from models.base_model import BaseModel
+                        cls_name = o["__class__"]
+                        del o["__class__"]
+                        self.new(eval(cls_name)(**o))
+            except FileNotFoundError:
+                return
