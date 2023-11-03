@@ -19,6 +19,9 @@ class TestFileStorage_instantiation(unittest.TestCase):
     """Define una clase llamada TestStorage que hereda de unittest.
     TestCase y representa un conjunto de prueas unitarias relaconadas
     """
+    def test_file_path(self):
+        self.assertIsNone(FileStorage.__file_path)
+
     def test_FileStorage_instantiation_no_args(self):
         self.assertEqual(type(FileStorage()), FileStorage)
 
