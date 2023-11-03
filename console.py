@@ -26,6 +26,14 @@ class HBNBCommand(cmd.Cmd):
         """No hacer nada en esta linea vacia"""
         pass
 
+    def help_quit(self):
+        """Muestra la ayuda para el comando 'quit'"""
+        print("Salir del programa")
+
+    def help_EOF(self):
+        """Muestra la ayuda para el comando 'EOF'"""
+        print("Salir del programa con EOF (Ctrl-D)")
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
