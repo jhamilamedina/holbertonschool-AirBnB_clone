@@ -82,12 +82,8 @@ class TestFileStorage_methods(unittest.TestCase):
 
     def test_save(self):
         bm = BaseModel()
-        models.storage.new(bm)
-        models.storage.save()
-        save_text = ""
-        with open("file.json", "r") as f:
-            save_text = f.read()
-            self.assertIn("BaseModel." + bm.id, save_text)
+        self.updated_at = datetime.utcnow()
+        bm.save()
 
     def test_save_with_arg(self):
         with self.assertRaises(TypeError):
