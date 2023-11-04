@@ -6,14 +6,14 @@ Unittest classes:
 """
 
 import unittest
-import os
 import json
+import os
 from time import sleep
 import models
 from datetime import datetime
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
-
+from os import path
 
 class TestFileStorage_instantiation(unittest.TestCase):
     """Define una clase llamada TestStorage que hereda de unittest.
