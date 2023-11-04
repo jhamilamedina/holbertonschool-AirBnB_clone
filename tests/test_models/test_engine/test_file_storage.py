@@ -83,7 +83,7 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_update_now(self):
         bm = BaseModel()
         original_updated_at = bm.updated_at
-        original_created_at = bm.created_at
+        original_created = bm.created_at
         sleep(1)
         bm.save()
         self.assertNotEqual(original_updated_at, bm.updated_at)
