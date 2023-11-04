@@ -92,8 +92,11 @@ class TestFileStorage_methods(unittest.TestCase):
 
     def test_save(self):
         bm = BaseModel()
-        self.updated_at = datetime.utcnow()
-        bm.save()
+        self.assertIsNone(bm.save())
+
+    def test_update_type(self):
+        bm = BaseModel()
+        self.assertTrue(type(bm.updated_at) == datetime)
 
     def test_save_with_arg(self):
         with self.assertRaises(TypeError):
