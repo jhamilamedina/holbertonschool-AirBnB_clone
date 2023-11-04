@@ -22,6 +22,10 @@ class TestFileStorage_instantiation(unittest.TestCase):
     def test_file_path(self):
         self.assertIsNone(FileStorage.__file_path)
 
+    def test_file_path1(self):
+        self.assertTrue(path.exists(FileStorage._FileStorage__file_path))
+
+
     def test_FileStorage_instantiation_no_args(self):
         self.assertEqual(type(FileStorage()), FileStorage)
 
