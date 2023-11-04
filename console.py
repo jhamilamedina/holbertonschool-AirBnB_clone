@@ -1,34 +1,41 @@
 #!/usr/bin/python3
 """Definimos una clase llamada HBNBCommand"""
 import cmd
+import re
+from shlex import split
+from models import storage
+from models.base_model import BaseModel
 
 
 class HBNBCommand(cmd.Cmd):
     """Clase que hereda HBNBCommand cmd.Cmd"""
     prompt = "(hbnb)"
     """prompt personalizado que muestra (hbnb)"""
+    __classes = {
+            "BaseModel"
+    }
 
     def do_quit(self, arg):
         """Definimos un metodo do_quit y toma 2
-        argumentos y salir del programa
+        argumentos y salir del interprete de comandos
         """
-        return true
+        return True
 
     def do_EOE(self, arg):
         """
         Definimos un metodo do_EOE y toma 2 argumentos
         salimos con EOE (Ctrl-D)
         """
-        print()
-        return true
+        print("")
+        return True
 
     def emptylyne(self):
-        """No hacer nada en esta linea vacia"""
+        """No hagas nada al recibir linea vacia"""
         pass
 
     def help_quit(self):
-        """Muestra la ayuda para el comando 'quit'"""
-        print("Salir del programa")
+        """Salir del interpete de comandos"""
+        print("Quit command to exit the program")
 
     def help_EOF(self):
         """Muestra la ayuda para el comando 'EOF'"""
