@@ -15,31 +15,31 @@ class HBNBCommand(cmd.Cmd):
             "BaseModel"
     }
 
+    def emptyline(self):
+        """No haga nada al recibir una linea vacia"""
+        pass
+
     def do_quit(self, arg):
         """Definimos un metodo do_quit y toma 2
         argumentos y salir del interprete de comandos
         """
         return True
 
-    def do_EOE(self, arg):
+    def do_EOF(self, arg):
         """
         Definimos un metodo do_EOE y toma 2 argumentos
-        salimos con EOE (Ctrl-D)
+        señal EOF para salir del programa 
         """
         print("")
         return True
-
-    def emptylyne(self):
-        """No hagas nada al recibir linea vacia"""
-        pass
 
     def help_quit(self):
         """Salir del interpete de comandos"""
         print("Quit command to exit the program")
 
     def help_EOF(self):
-        """Muestra la ayuda para el comando 'EOF'"""
-        print("Salir del programa con EOF (Ctrl-D)")
+        """Muestra la ayuda para el comando EOF"""
+        print("Salir del programa con EOF")
 
 
 if __name__ == "__main__":
