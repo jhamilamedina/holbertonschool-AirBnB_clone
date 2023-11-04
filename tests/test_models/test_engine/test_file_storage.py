@@ -80,6 +80,16 @@ class TestFileStorage_methods(unittest.TestCase):
         with self.assertRaises(TypeError):
             models.storage.new(BaseModel(), 1)
 
+    def test_update_now(self):
+        bm = BaseModel()
+        original_updated_at = bm.updated_at
+        original_created_at = bm.created_at
+        sleep(1)
+        bm.save()
+        self.assertNotEqual(original_updated_at, bm.updated_at)
+        self.assertTrue(original_created_at, bm.created_at)
+        self.assertNotEqual(bm.updated_at, bm.created_at)
+
     def test_save(self):
         bm = BaseModel()
         self.updated_at = datetime.utcnow()
