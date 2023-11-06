@@ -45,6 +45,7 @@ class FileStorage:
 
                 for o in data.values():
                     from models.base_model import BaseModel
+                    from models.user import User
                     cls_name = o["__class__"]
                     del o["__class__"]
                     self.new(eval(cls_name)(**o))
