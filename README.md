@@ -1,7 +1,6 @@
 
-"C:\Users\pc\Desktop\Arbnbn Clone.JPG"
+Introducción:
 
-INTRODUCCIÓN:
 AirBnB clone - The console
 Este es el Primer Proyecto en grupo en las cuales vamos a utilizar diferentes funciones
 y conceptos nuevos.
