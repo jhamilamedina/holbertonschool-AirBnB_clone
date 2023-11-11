@@ -1,5 +1,7 @@
 
-"C:\Users\pc\Desktop\Arbnb Clone.JPG"
+"C:\Users\pc\Desktop\Arbnbn Clone.JPG"
+
+INTRODUCCIÓN:
 AirBnB clone - The console
 Este es el Primer Proyecto en grupo en las cuales vamos a utilizar diferentes funciones
 y conceptos nuevos.
