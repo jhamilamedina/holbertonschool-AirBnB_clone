@@ -1,3 +1,5 @@
+
+"C:\Users\pc\Desktop\Arbnb Clone.JPG"
 AirBnB clone - The console
 Este es el Primer Proyecto en grupo en las cuales vamos a utilizar diferentes funciones
 y conceptos nuevos.
@@ -12,4 +14,4 @@ Implemente una clase principal (llamada BaseModel) para encargarse de la inicial
 cree un flujo simple de serialización/deserialización: Instancia <-> Diccionario <-> Cadena JSON <-> archivo
 crear todas las clases utilizadas para AirBnB (Usuario, Estado, Ciudad, Lugar) que heredan de BaseModel
 Cree el primer motor de almacenamiento abstracto del proyecto: almacenamiento de archivos.
-crear todas las pruebas unitarias para validar todas nuestras clases y motor de almacenamiento
+crear todas las pruebas unitarias para validar todas nuestras clases y motor de almacenamientio
