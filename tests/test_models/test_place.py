@@ -32,6 +32,7 @@ class TestCity(unittest.TestCase):
 
     def test_str_magic(self):
         name_class = self.place.__class__.__name__
+        id_obj = self.place.id
         dict_obj = self.place.__dict__
         str_magic = f"[{name_class}] ({id_obj}) {dict_obj}"
 
