@@ -1,6 +1,7 @@
 
-## Hola, Soy Maly 
-Y este es mi primer proyecto que he realizado
+#**#** Hi, I am Maly 
+Y este es mi primer proyecto que he realizado y aunque he tenido algunos contratiempos durante el proceso
+he logrado culminarlo.
 
 El Proyecto completo lo encuentran aquí: https://github.com/jhamilamedina/holbertonschool-AirBnB_clone
 
