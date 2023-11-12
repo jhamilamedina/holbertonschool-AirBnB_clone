@@ -19,9 +19,6 @@ class TestFileStorage_instantiation(unittest.TestCase):
     """Define una clase llamada TestStorage que hereda de unittest.
     TestCase y representa un conjunto de prueas unitarias relaconadas
     """
-    def test_file_path(self):
-        self.assertIsNone(FileStorage.__file_path)
-
     def test_file_path1(self):
         self.assertTrue(path.exists(FileStorage._FileStorage__file_path))
 
@@ -87,7 +84,7 @@ class TestFileStorage_methods(unittest.TestCase):
     def test_update_now(self):
         bm = BaseModel()
         original_updated_at = bm.updated_at
-        original_created = bm.created_at
+        original_created_at = bm.created_at
         sleep(1)
         bm.save()
         self.assertNotEqual(original_updated_at, bm.updated_at)
