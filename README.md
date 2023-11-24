@@ -1,4 +1,12 @@
 
+## Hi, I am Maly 
+Y este es mi primer proyecto que he realizado y aunque he tenido algunos contratiempos durante el proceso
+he logrado culminarlo.
+
+El Proyecto completo lo encuentran aquí: https://github.com/jhamilamedina/holbertonschool-AirBnB_clone
+
+
+
 Introducción:
 
 AirBnB clone - The console 
@@ -30,8 +38,22 @@ La Consola realizará la siguiente tarea:
   En este proyecto todas ls clases son manejadas por un motor de almacenamiento("Storage" engine) en
   la Clase FileStorage 
 
-INSTALACIÓN:
-git clone https://github.com/jhamilamedina/holbertonschool-AirBnB_clone.git
+CREACIÓN DE UN REPOSITORIO:
+* Creamos un repositorio en github
+* En GitHub.com, navega a la página principal del repositorio.
+
+* Encima de la lista de archivos, haz clic en <> Code.
+
+* Ir a la terminal donde va a realizar su proyecto
+
+* Copia la dirección URL del repositorio.
+  Clonamos el HTTPS del repositorio + el token con este comando:
+git clone git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+
+* Presione Enter para crear el clon local.
+
+* Dentro del repositorio creamos nuestros modulos para iniciar nuestro proyecto
+
 Cambia al AirBnB directorio y ejecute el comando:
 ... bash
  ./console.py
