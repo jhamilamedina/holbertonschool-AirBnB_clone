@@ -2,20 +2,12 @@ header {
     background-color: white;
     height: 70px;
     width: 100%;
-    border-top: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
 }
 
 .header-logo {
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-    left: 20px;
-    height: 100%;
-    /* border: 1px solid salmon; */
-}
-
-.header-logo iframe {
-    border: none;
-    height: 100%;
-    
+background-image: url("https://s3.eu-west-3.amazonaws.com/hbtn.intranet.project.files/holbertonschool-higher-level_programming+/268/logo.png");
+background-size: cover;
+width: 60px;
+height: 100%;
 }
