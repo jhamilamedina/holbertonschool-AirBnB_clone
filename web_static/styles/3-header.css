@@ -18,3 +18,8 @@ header {
     display: flex;
     align-items: center;
   }
+
+  header header-logo + h2 {
+    font-size: 38px;
+    margin: 5px;
+  }
