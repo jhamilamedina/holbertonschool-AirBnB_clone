@@ -11,3 +11,8 @@ background-size: cover;
 width: 60px;
 height: 100%;
 }
+
+header {
+    display: flex;
+    align-items: center;
+}
