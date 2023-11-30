@@ -33,7 +33,7 @@
     float: right;
     /*centrar*/
     position: relative;
-    top: 50%;
+    margin-top: 5%;
     transform: translateY(-50%);
     margin-right: 30px;
   }
