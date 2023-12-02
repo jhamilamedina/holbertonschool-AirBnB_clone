@@ -1,3 +1,8 @@
+.places{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
 .places h1 {
     left: 0;
     top: 0;
