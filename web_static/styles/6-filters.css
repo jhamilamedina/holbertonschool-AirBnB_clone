@@ -18,7 +18,7 @@
     border-radius: 4px;
     display: flex;
     justify-content: flex-end;
-    align-items: center; 
+    align-items: center;  
     
   }
 
@@ -46,7 +46,7 @@
   .amenities {
     height: 100%;
     width: 25%;
-    float: left;
+    float: inline-end;
   }
 
   .locations {
@@ -81,7 +81,6 @@
 
   .filters > .filters-popover:first-child {
     border-right: 1px solid #dddddd;
-    float: none;
     
   }
 

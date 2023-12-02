@@ -14,6 +14,7 @@
 
 .places-article article {
     width: 390px;
+    height: 340px;
     padding: 20px;
     margin: 20px;
     border: 1px solid #FF5A5F;
@@ -85,6 +86,8 @@ article {
     margin-right: 20px;
     position: absolute;
     text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
 
     
 }
@@ -93,11 +96,16 @@ article {
     font-weight: lighter;
     position: absolute;
     margin-top: 80px;
-    text-align:left;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
 
 }
 
 .user span {
     font-weight: bold;
-    text-align: left;
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+
 }
