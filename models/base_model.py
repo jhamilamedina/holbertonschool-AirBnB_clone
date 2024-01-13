@@ -1,13 +1,21 @@
 #!/usr/bin/python3
 """Definimos una clase"""
 
+from sqlalchemy.ext.declarative import declarative_base
 import uuid
 from datetime import datetime
-from models import storage
+import models
+from sqlalchemy import Column, Integer, String, DateTime
 
+
+Base = declarative_base()
 
 class BaseModel:
     """Representación de la clase"""
+    id = Column(String(60), unique=True, nullable=False, primary_key=True)
+    created_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
+    updated_at = Column(DateTime, nullable=False, default=(datetime.utcnow()))
+
     def __init__(self, *args, **kwargs):
         """Inicializa los atributos:
         id, create_at, update_at

@@ -4,6 +4,14 @@
 import json
 from os import path
 import datetime
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+import shlex
 
 
 class FileStorage:
@@ -44,8 +52,6 @@ class FileStorage:
                 data = json.load(file)
 
                 for o in data.values():
-                    from models.base_model import BaseModel
-                    from models.user import User
                     cls_name = o["__class__"]
                     del o["__class__"]
                     self.new(eval(cls_name)(**o))
